@@ -1,0 +1,111 @@
+{
+  "exportedBy": null,
+  "bundleHash": null,
+  "version": "1.0.0.0",
+  "jitAssemblyCompilerCommands": [
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 1,
+        "idRef": "GetListItemsConnections`1_1",
+        "hash": "GetListItemsConnections`1_1|DataTable|PCDAnxEw4j7ZMVW9a0qXPpfH8Xyz87NVFQM02en4Kyc",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "RequesterEmail",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable1",
+        "hash": "GetListItemsConnections`1_1|DataTable|MGWtqiazm8ihKw9LYXe2DjUnDbogGE1NNoxYrT8eMU",
+        "assemblyName": "Studio.Generated.TypedDataTable1"
+      }
+    },
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 2,
+        "idRef": "GetListItemsConnections`1_1",
+        "hash": "GetListItemsConnections`1_1|DataTable|yCs50hQlaOlXbQPCQyna8pJwaZhgdUgD3a7RKmoom8",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "LinkTitle",
+            "dataType": "System.Object, System.Private.CoreLib"
+          },
+          {
+            "columnName": "RequesterEmail",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable2",
+        "hash": "GetListItemsConnections`1_1|DataTable|HOVvztWT4CXBSdjRoCFqTMjgYlcsurrMEMGfFwUSPs",
+        "assemblyName": "Studio.Generated.TypedDataTable2"
+      }
+    },
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 3,
+        "idRef": "GetListItemsConnections`1_1",
+        "hash": "GetListItemsConnections`1_1|DataTable|y90yRykQ787q2iptpIljcXKeNPt8MFgQIrtbGyc",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "LinkTitle",
+            "dataType": "System.Object, System.Private.CoreLib"
+          },
+          {
+            "columnName": "KickstartConventionalRate",
+            "dataType": "System.Decimal, System.Private.CoreLib"
+          },
+          {
+            "columnName": "RequesterEmail",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable3",
+        "hash": "GetListItemsConnections`1_1|DataTable|OH2rxGh8CZqrF8kjNDQZ7LYzFALBq8Y7r1kTjdUzI",
+        "assemblyName": "Studio.Generated.TypedDataTable3"
+      }
+    },
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 4,
+        "idRef": "GetListItemsConnections`1_1",
+        "hash": "GetListItemsConnections`1_1|DataTable|zfrQL3Z9vrM9Qxqqjln3eKvRs1VY4dmYSnbWLPZSJQ",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "LinkTitle",
+            "dataType": "System.Object, System.Private.CoreLib"
+          },
+          {
+            "columnName": "KickstartConventionalRate",
+            "dataType": "System.Decimal, System.Private.CoreLib"
+          },
+          {
+            "columnName": "HalalRate",
+            "dataType": "System.Decimal, System.Private.CoreLib"
+          },
+          {
+            "columnName": "RequesterEmail",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable4",
+        "hash": "GetListItemsConnections`1_1|DataTable|lNhSz3R6eTBVDfEyVgz0HjDofESlN16tyrAdYk0cZU",
+        "assemblyName": "Studio.Generated.TypedDataTable4"
+      }
+    }
+  ]
+}
