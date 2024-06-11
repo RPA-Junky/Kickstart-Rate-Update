@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>816,4203.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>816,648.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Update_Rate_on_Symplus_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -55,6 +55,7 @@
       <x:String>UiPath.Mail.Activities</x:String>
       <x:String>UiPath.Mail.Activities.Utils</x:String>
       <x:String>UiPath.Mail.Activities.Business.HtmlEditor</x:String>
+      <x:String>System.Globalization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -120,9 +121,14 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable2</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable4</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Update_Rate_on_Symplus" sap:VirtualizedContainerService.HintSize="592,1139.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Update_Rate_on_Symplus" sap:VirtualizedContainerService.HintSize="553.6,584" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="SymplusLink" />
       <Variable x:TypeArguments="s1:String[]" Default="[{&quot;NFG-CF-000005&quot;,&quot;NFG-CF-000006&quot;}]" Name="Fund_IDs" />
@@ -132,7 +138,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="529.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="491.2,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,202.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
@@ -150,235 +156,259 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <s:Symplus_Back_Office_Test_Login_Chrome DisplayName="Symplus Back Office Test Login Chrome" sap:VirtualizedContainerService.HintSize="529.6,90.4" sap2010:WorkflowViewState.IdRef="Symplus_Back_Office_Test_Login_Chrome_1" out_SymplusURL="[SymplusLink]" />
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Symplus Dashboard" sap:VirtualizedContainerService.HintSize="529.6,52.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V2" WindowResize="Maximize">
-      <uix:NApplicationCard.Body>
-        <ActivityAction x:TypeArguments="x:Object">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="549.6,3112" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="491.2,259.2" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[CInt(in_Config(&quot;MaxRetryProcessNumber&quot;))]">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Asset Management'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
-              <uix:NClick.Target>
-                <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210840000:99901000:798673489235:::RP::&amp;cs=3a58ZmUY0shucBwnCh0T1Q7SlqXfoM6Bsjk4bP9MyZFFQZxjzenVao4xJ0kQtp1C5TI3eTSzcMuIPkJNroyuGRg" CVScreenId="6bd9f7ed-2846-4ec1-9bb5-637c56e9e37d" CvTextArea="21, 675, 156, 21" CvTextArgument="Asset Management" CvType="Text" DesignTimeRectangle="9, 661, 183, 45" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Asset Management'" FullSelectorArgument="&lt;webctrl aaname='Asset Management' class='t-LinksList-label' parentid='98158734218948931' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Asset Management' class='t-LinksList-label' parentid='98158734218948931' tag='SPAN' type='' check:innerText='Asset Management' /&gt;" Guid="a17cdb92-60ae-4df4-8d29-20fb2c607258" InformativeScreenshot="988e73cc090658f8371c6cf574924d7c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Symplus Dashboard' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
-              </uix:NClick.Target>
-            </uix:NClick>
-            <uix:NSelectItem DisplayName="Select Item 'Company (Value Required)'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Norrenberger Financial Group Limited" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
-              <uix:NSelectItem.Items>
-                <scg:List x:TypeArguments="x:String" Capacity="6">
-                  <x:String>-- Select Company --</x:String>
-                  <x:String>Norrenberger Financial Group Limited</x:String>
-                  <x:String>Norrenberger Islamic Fund</x:String>
-                  <x:String>Norrenberger Turbo Fund</x:String>
-                  <x:String>Norrenberger Dollar Fund</x:String>
-                  <x:String>Norrenberger Money Market Fund</x:String>
-                </scg:List>
-              </uix:NSelectItem.Items>
-              <uix:NSelectItem.Target>
-                <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850000:150000009:798673489235:::150000000::" CVScreenId="63843bd3-2ab0-479d-8226-04650b0378a8" CvTextArea="528, 482, 139, 13" CvTextArgument="-- Select Company --" CvType="Text" DesignTimeRectangle="521, 468, 577, 43" DesignTimeScaleFactor="1.25" ElementType="DropDown" FriendlyName="'-- Select Company --'" FullSelectorArgument="&lt;webctrl tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SELECT' type='' class='selectlist apex-item-select' aaname='Company (Value Required)' /&gt;" Guid="a1090f27-4ba4-4c07-b073-e4a4b88f1ed4" InformativeScreenshot="e559de7f22a80b42eaf56a805f053a05.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Company Selector' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="63843bd3-2ab0-479d-8226-04650b0378a8" CvTextArea="349, 476, 71, 18" CvTextArgument="Company" CvType="Text" DesignTimeRectangle="350, 468, 151, 30" ElementType="Text" FriendlyName="'Company (Value Required)'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='t-Form-label' aaname='Company ' check:innerText='Company &amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NSelectItem.Target>
-            </uix:NSelectItem>
-            <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Proceed'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
-              <uix:NClick.Target>
-                <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850000:150000009:798673489235:::150000000::" CVScreenId="63843bd3-2ab0-479d-8226-04650b0378a8" CvElementArea="1122, 465, 104, 44" CvTextArea="1143, 481, 53, 13" CvTextArgument="Proceed" CvType="Button" DesignTimeRectangle="1125, 468, 100, 39" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Proceed'" FullSelectorArgument="&lt;webctrl id='B135906014828826353' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='B135906014828826353' tag='BUTTON' type='button' class=' sym_button t-Button t-Button--noLabel t-Button--icon ' aaname='Proceed' check:innerText='Proceed' /&gt;" Guid="f62028e1-d6a8-4b6e-99d2-976d3e4fec1b" InformativeScreenshot="ec1f3c83f09e6e52cbe684616b7bb032.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Company Selector' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
-              </uix:NClick.Target>
-            </uix:NClick>
-            <uix:NSelectItem DisplayName="Select Item 'Non Unitized Funds'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="Fund Management" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
-              <uix:NSelectItem.Items>
-                <scg:List x:TypeArguments="x:String" Capacity="10">
-                  <x:String>Fund Management</x:String>
-                  <x:String>Kick Start</x:String>
-                  <x:String>Deposits</x:String>
-                  <x:String>Uploads</x:String>
-                  <x:String>Cash</x:String>
-                  <x:String>Fees</x:String>
-                  <x:String>Online/API Transactions</x:String>
-                  <x:String>Callover</x:String>
-                  <x:String>Fund Enquiry</x:String>
-                  <x:String>Enquiries</x:String>
-                </scg:List>
-              </uix:NSelectItem.Items>
-              <uix:NSelectItem.Target>
-                <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850000:HOME:798673489235:::::" CVScreenId="f76801b1-db25-46f1-9997-2c4c14589de1" CvElementArea="549, 285, 202, 49" CvTextArea="559, 300, 154, 18" CvTextArgument="Non Unitized Funds" CvType="Button" DesignTimeRectangle="552, 285, 170, 50" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Non Unitized Funds'" FullSelectorArgument="&lt;webctrl aaname='Non Unitized Funds' aria-role='menuitem' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Non Unitized Funds' aria-role='menuitem' tag='BUTTON' type='button' class='a-MenuBar-label' check:innerText='Non Unitized Funds' /&gt;" Guid="7064ac8b-386f-461f-9078-8b1b10971da0" InformativeScreenshot="c8e606ae75be6ac0b52e1706ba8ca334.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DASHBOARD' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
-              </uix:NSelectItem.Target>
-            </uix:NSelectItem>
-            <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Fund Setup'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
-              <uix:NClick.Target>
-                <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850000:HOME:798673489235:::::" CVScreenId="1489d993-e2fd-4755-b248-ad3f07e8defb" CvElementArea="1004, 356, 21, 24" CvTextArea="848, 361, 76, 18" CvTextArgument="Fund Setup" CvType="ArrowButton" DesignTimeRectangle="809, 346, 229, 45" DesignTimeScaleFactor="1.25" FriendlyName="'Fund Setup'" FullSelectorArgument="&lt;webctrl class='a-Menu-inner' css-selector='body&amp;gt;form&amp;gt;header&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div' idx='2' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='a-Menu-inner' type='' aaname='' tag='DIV' check:innerText='Fund Setup' /&gt;" Guid="d25fafcb-a8c2-47dc-8ce0-195bcd4026fd" InformativeScreenshot="73771887aed6d2b17e72cc2ed69535f6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DASHBOARD' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
-              </uix:NClick.Target>
-            </uix:NClick>
-            <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Amendment'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
-              <uix:NClick.Target>
-                <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850000:HOME:798673489235:::::" DesignTimeRectangle="1039, 392, 228, 45" DesignTimeScaleFactor="1.25" FriendlyName="'Amendment'" FullSelectorArgument="&lt;webctrl class='a-Menu-inner' css-selector='body&amp;gt;form&amp;gt;header&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div' idx='3' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='a-Menu-inner' type='' aaname='' tag='DIV' check:innerText='Amendment' /&gt;" Guid="943275f2-73d3-44f7-a142-66f0e1f2f9bd" InformativeScreenshot="ba91cd6258b93af7133acc0442edbe37.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DASHBOARD' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
-              </uix:NClick.Target>
-            </uix:NClick>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Fund ID" sap:VirtualizedContainerService.HintSize="487.2,1811.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Fund_IDs]">
-              <ui:ForEach.Body>
-                <ActivityAction x:TypeArguments="x:String">
+            <s:Symplus_Back_Office_Test_Login_Chrome DisplayName="Symplus Back Office Test Login Chrome" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="Symplus_Back_Office_Test_Login_Chrome_1" out_SymplusURL="[SymplusLink]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </s:Symplus_Back_Office_Test_Login_Chrome>
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Symplus Dashboard" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V2" WindowResize="Maximize">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="453.6,1623.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="549.6,3112" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'New'" sap:VirtualizedContainerService.HintSize="410.4,157.6" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
+                    <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Asset Management'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
                       <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=SYMAMCF1:1500505600:798673489235:::1500505600::&amp;cs=3XzIMKuitUUvwMQG54yPI8YOCOhiRU7tSC6X-Yawg2whiRvRiY_jxklK35C0Sg9Go3LDsZXcFqvC5PAM6XB5SlQ" CVScreenId="ed3c8435-a95f-4061-9d38-cf5c7fcce414" CvTextArea="1786, 420, 55, 15" CvTextArgument="New +" CvType="Text" DesignTimeRectangle="1767, 408, 100, 39" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'New'" FullSelectorArgument="&lt;webctrl id='B156142594396973515' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='B156142594396973515' tag='BUTTON' type='button' class=' sym_button t-Button t-Button--noLabel t-Button--icon ' aaname='New' check:innerText='New' /&gt;" Guid="26c4433e-7478-40dd-8d61-c66c58919de2" InformativeScreenshot="29027a056393f655ea8653ccb39a3474.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                        <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210840000:99901000:798673489235:::RP::&amp;cs=3a58ZmUY0shucBwnCh0T1Q7SlqXfoM6Bsjk4bP9MyZFFQZxjzenVao4xJ0kQtp1C5TI3eTSzcMuIPkJNroyuGRg" CVScreenId="6bd9f7ed-2846-4ec1-9bb5-637c56e9e37d" CvTextArea="21, 675, 156, 21" CvTextArgument="Asset Management" CvType="Text" DesignTimeRectangle="9, 661, 183, 45" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Asset Management'" FullSelectorArgument="&lt;webctrl aaname='Asset Management' class='t-LinksList-label' parentid='98158734218948931' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Asset Management' class='t-LinksList-label' parentid='98158734218948931' tag='SPAN' type='' check:innerText='Asset Management' /&gt;" Guid="a17cdb92-60ae-4df4-8d29-20fb2c607258" InformativeScreenshot="988e73cc090658f8371c6cf574924d7c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Symplus Dashboard' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="Single" DisplayName="Type Into 'Fund ID.'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410.4,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Text="[currentItem + &quot;[k(Enter)]&quot;]" Version="V3">
-                      <uix:NTypeInto.Target>
-                        <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="f7440a21-01a0-421a-a75b-1b7605be96c0" CvElementArea="262, 389, 584, 47" CvType="InputBox" DesignTimeRectangle="264, 392, 579, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT P1500505601_FND_K…'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='text' class='superlov-input popup_lov text_field apex-item-text' aaname='Fund ID. (Value Required)' /&gt;" Guid="63850820-c615-4678-820e-ea61135ad15c" InformativeScreenshot="5807bf381184e73753b7b504e18b570e.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                    <uix:NSelectItem DisplayName="Select Item 'Company (Value Required)'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Norrenberger Financial Group Limited" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
+                      <uix:NSelectItem.Items>
+                        <scg:List x:TypeArguments="x:String" Capacity="6">
+                          <x:String>-- Select Company --</x:String>
+                          <x:String>Norrenberger Financial Group Limited</x:String>
+                          <x:String>Norrenberger Islamic Fund</x:String>
+                          <x:String>Norrenberger Turbo Fund</x:String>
+                          <x:String>Norrenberger Dollar Fund</x:String>
+                          <x:String>Norrenberger Money Market Fund</x:String>
+                        </scg:List>
+                      </uix:NSelectItem.Items>
+                      <uix:NSelectItem.Target>
+                        <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850000:150000009:798673489235:::150000000::" CVScreenId="63843bd3-2ab0-479d-8226-04650b0378a8" CvTextArea="528, 482, 139, 13" CvTextArgument="-- Select Company --" CvType="Text" DesignTimeRectangle="521, 468, 577, 43" DesignTimeScaleFactor="1.25" ElementType="DropDown" FriendlyName="'-- Select Company --'" FullSelectorArgument="&lt;webctrl tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SELECT' type='' class='selectlist apex-item-select' aaname='Company (Value Required)' /&gt;" Guid="a1090f27-4ba4-4c07-b073-e4a4b88f1ed4" InformativeScreenshot="e559de7f22a80b42eaf56a805f053a05.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Company Selector' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
                             <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                              <uix:Target CVScreenId="f7440a21-01a0-421a-a75b-1b7605be96c0" CvTextArea="91, 400, 62, 15" CvTextArgument="Fund ID." CvType="Text" DesignTimeRectangle="93, 392, 151, 30" ElementType="Text" FriendlyName="'Fund ID.'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl tag='LABEL' type='' class='t-Form-label' aaname='Fund ID. ' check:innerText='Fund ID.&amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
+                              <uix:Target CVScreenId="63843bd3-2ab0-479d-8226-04650b0378a8" CvTextArea="349, 476, 71, 18" CvTextArgument="Company" CvType="Text" DesignTimeRectangle="350, 468, 151, 30" ElementType="Text" FriendlyName="'Company (Value Required)'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='t-Form-label' aaname='Company ' check:innerText='Company &amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
                             </scg:List>
                           </uix:TargetAnchorable.Anchors>
                         </uix:TargetAnchorable>
-                      </uix:NTypeInto.Target>
-                    </uix:NTypeInto>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="410.4,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-                      <ui:CommentOut.Body>
-                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,164.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="Single" DisplayName="Type Into 'Date Amended'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Text="[in_BusinessDate + &quot;[k(Enter)]&quot;]" Version="V3">
-                            <uix:NTypeInto.Target>
-                              <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="bb49d9fc-49ff-4ed6-abe8-18d6599aaa4f" CvElementArea="261, 596, 672, 46" CvType="InputBox" DesignTimeRectangle="264, 599, 653, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'19-FEB-2024'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_AMND_DT_AD' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_AMND_DT_AD' tag='INPUT' type='text' class='datepicker apex-item-text apex-item-datepicker hasDatepicker' aaname='Date Amended (Value Required)' /&gt;" Guid="7574a0f6-2320-4e2f-a085-7a73a444531a" InformativeScreenshot="511cce8b0dc9c405052b1784b6a31ab4.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
-                                <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                    <uix:Target CVScreenId="bb49d9fc-49ff-4ed6-abe8-18d6599aaa4f" CvTextArea="91, 607, 111, 15" CvTextArgument="Date Amended" CvType="Text" DesignTimeRectangle="93, 599, 151, 30" ElementType="Text" FriendlyName="'Date Amended'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Date Amended ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Date Amended ' tag='LABEL' type='' class='t-Form-label' check:innerText='Date Amended&amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
-                                  </scg:List>
-                                </uix:TargetAnchorable.Anchors>
-                              </uix:TargetAnchorable>
-                            </uix:NTypeInto.Target>
+                      </uix:NSelectItem.Target>
+                    </uix:NSelectItem>
+                    <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Proceed'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850000:150000009:798673489235:::150000000::" CVScreenId="63843bd3-2ab0-479d-8226-04650b0378a8" CvElementArea="1122, 465, 104, 44" CvTextArea="1143, 481, 53, 13" CvTextArgument="Proceed" CvType="Button" DesignTimeRectangle="1125, 468, 100, 39" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Proceed'" FullSelectorArgument="&lt;webctrl id='B135906014828826353' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='B135906014828826353' tag='BUTTON' type='button' class=' sym_button t-Button t-Button--noLabel t-Button--icon ' aaname='Proceed' check:innerText='Proceed' /&gt;" Guid="f62028e1-d6a8-4b6e-99d2-976d3e4fec1b" InformativeScreenshot="ec1f3c83f09e6e52cbe684616b7bb032.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Company Selector' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NSelectItem DisplayName="Select Item 'Non Unitized Funds'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="Fund Management" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
+                      <uix:NSelectItem.Items>
+                        <scg:List x:TypeArguments="x:String" Capacity="10">
+                          <x:String>Fund Management</x:String>
+                          <x:String>Kick Start</x:String>
+                          <x:String>Deposits</x:String>
+                          <x:String>Uploads</x:String>
+                          <x:String>Cash</x:String>
+                          <x:String>Fees</x:String>
+                          <x:String>Online/API Transactions</x:String>
+                          <x:String>Callover</x:String>
+                          <x:String>Fund Enquiry</x:String>
+                          <x:String>Enquiries</x:String>
+                        </scg:List>
+                      </uix:NSelectItem.Items>
+                      <uix:NSelectItem.Target>
+                        <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850000:HOME:798673489235:::::" CVScreenId="f76801b1-db25-46f1-9997-2c4c14589de1" CvElementArea="549, 285, 202, 49" CvTextArea="559, 300, 154, 18" CvTextArgument="Non Unitized Funds" CvType="Button" DesignTimeRectangle="552, 285, 170, 50" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Non Unitized Funds'" FullSelectorArgument="&lt;webctrl aaname='Non Unitized Funds' aria-role='menuitem' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Non Unitized Funds' aria-role='menuitem' tag='BUTTON' type='button' class='a-MenuBar-label' check:innerText='Non Unitized Funds' /&gt;" Guid="7064ac8b-386f-461f-9078-8b1b10971da0" InformativeScreenshot="c8e606ae75be6ac0b52e1706ba8ca334.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DASHBOARD' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                      </uix:NSelectItem.Target>
+                    </uix:NSelectItem>
+                    <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Fund Setup'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850000:HOME:798673489235:::::" CVScreenId="1489d993-e2fd-4755-b248-ad3f07e8defb" CvElementArea="1004, 356, 21, 24" CvTextArea="848, 361, 76, 18" CvTextArgument="Fund Setup" CvType="ArrowButton" DesignTimeRectangle="809, 346, 229, 45" DesignTimeScaleFactor="1.25" FriendlyName="'Fund Setup'" FullSelectorArgument="&lt;webctrl class='a-Menu-inner' css-selector='body&amp;gt;form&amp;gt;header&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div' idx='2' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='a-Menu-inner' type='' aaname='' tag='DIV' check:innerText='Fund Setup' /&gt;" Guid="d25fafcb-a8c2-47dc-8ce0-195bcd4026fd" InformativeScreenshot="73771887aed6d2b17e72cc2ed69535f6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DASHBOARD' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Amendment'" sap:VirtualizedContainerService.HintSize="487.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850000:HOME:798673489235:::::" DesignTimeRectangle="1039, 392, 228, 45" DesignTimeScaleFactor="1.25" FriendlyName="'Amendment'" FullSelectorArgument="&lt;webctrl class='a-Menu-inner' css-selector='body&amp;gt;form&amp;gt;header&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div' idx='3' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='a-Menu-inner' type='' aaname='' tag='DIV' check:innerText='Amendment' /&gt;" Guid="943275f2-73d3-44f7-a142-66f0e1f2f9bd" InformativeScreenshot="ba91cd6258b93af7133acc0442edbe37.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DASHBOARD' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Fund ID" sap:VirtualizedContainerService.HintSize="487.2,1811.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Fund_IDs]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="x:String">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="453.6,1623.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                          </uix:NTypeInto>
-                        </Sequence>
-                      </ui:CommentOut.Body>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </ui:CommentOut>
-                    <If Condition="[currentItem = &quot;NFG-CF-000005&quot;]" DisplayName="If it is a Conventional Product" sap:VirtualizedContainerService.HintSize="410.4,799.2" sap2010:WorkflowViewState.IdRef="If_1">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="376.8,308" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="Single" DisplayName="Type in Conventional Rate" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Text="[in_TransactionItem.SpecificContent(&quot;Conventional Rate&quot;).ToString + &quot;[k(Enter)]&quot;]" Version="V3">
-                            <uix:NTypeInto.Target>
-                              <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="c3c982f8-8a51-4d38-8d07-5d64ae4d8ed9" CvElementArea="261, 793, 696, 47" CvType="InputBox" DesignTimeRectangle="264, 796, 690, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'10.00'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_MIN_INV_AMT_AD' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_MIN_INV_AMT_AD' tag='INPUT' type='text' class='text_field apex-item-text' aaname='Minimum Amount (Value Required)' /&gt;" Guid="b5407bcb-86b1-4875-ab9d-83055e3b29a6" InformativeScreenshot="6933405b498d631322c489b01c847865.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
-                                <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                    <uix:Target CVScreenId="c3c982f8-8a51-4d38-8d07-5d64ae4d8ed9" CvTextArea="91, 803, 137, 15" CvTextArgument="Minimum Amount" CvType="Text" DesignTimeRectangle="93, 796, 151, 30" ElementType="Text" FriendlyName="'Minimum Amount'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Minimum Amount ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Minimum Amount ' tag='LABEL' type='' class='t-Form-label' check:innerText='Minimum Amount&amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
-                                  </scg:List>
-                                </uix:TargetAnchorable.Anchors>
-                              </uix:TargetAnchorable>
-                            </uix:NTypeInto.Target>
-                          </uix:NTypeInto>
-                        </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence sap:VirtualizedContainerService.HintSize="376.8,308" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="Single" DisplayName="Type in Halal Rate" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Text="[in_TransactionItem.SpecificContent(&quot;Halal Rate&quot;).ToString + &quot;[k(Enter)]&quot;]" Version="V3">
-                            <uix:NTypeInto.Target>
-                              <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="c3c982f8-8a51-4d38-8d07-5d64ae4d8ed9" CvElementArea="261, 793, 696, 47" CvType="InputBox" DesignTimeRectangle="264, 796, 690, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'10.00'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_MIN_INV_AMT_AD' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_MIN_INV_AMT_AD' tag='INPUT' type='text' class='text_field apex-item-text' aaname='Minimum Amount (Value Required)' /&gt;" Guid="b5407bcb-86b1-4875-ab9d-83055e3b29a6" InformativeScreenshot="6933405b498d631322c489b01c847865.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
-                                <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                    <uix:Target CVScreenId="c3c982f8-8a51-4d38-8d07-5d64ae4d8ed9" CvTextArea="91, 803, 137, 15" CvTextArgument="Minimum Amount" CvType="Text" DesignTimeRectangle="93, 796, 151, 30" ElementType="Text" FriendlyName="'Minimum Amount'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Minimum Amount ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Minimum Amount ' tag='LABEL' type='' class='t-Form-label' check:innerText='Minimum Amount&amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
-                                  </scg:List>
-                                </uix:TargetAnchorable.Anchors>
-                              </uix:TargetAnchorable>
-                            </uix:NTypeInto.Target>
-                          </uix:NTypeInto>
-                        </Sequence>
-                      </If.Else>
-                    </If>
-                    <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="Single" DisplayName="Type Into 'Remarks (Value Required)'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410.4,52.8" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Text="[&quot;Done&quot; + &quot;[k(Enter)]&quot;]" Version="V3">
-                      <uix:NTypeInto.Target>
-                        <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="d1c4a54a-a0a5-4f5a-a1f3-970ec8042a48" CvElementArea="267, 898, 1571, 46" CvType="InputBox" DesignTimeRectangle="264, 900, 1571, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT P1500505601_RMK_T…'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_RMK_TXT_AD' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_RMK_TXT_AD' tag='INPUT' type='text' class='text_field apex-item-text' aaname='Remarks (Value Required)' /&gt;" Guid="f89951f3-80a4-4aba-8c83-60c161987341" InformativeScreenshot="33d397356be2d7d7352407ef1d0bb668.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
-                          <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                              <uix:Target CVScreenId="d1c4a54a-a0a5-4f5a-a1f3-970ec8042a48" CvTextArea="91, 908, 63, 15" CvTextArgument="Remarks" CvType="Text" DesignTimeRectangle="93, 900, 151, 30" ElementType="Text" FriendlyName="'Remarks (Value Required)'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Remarks ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Remarks ' tag='LABEL' type='' class='t-Form-label' check:innerText='Remarks&amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
-                            </scg:List>
-                          </uix:TargetAnchorable.Anchors>
-                        </uix:TargetAnchorable>
-                      </uix:NTypeInto.Target>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </uix:NTypeInto>
-                    <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="410.4,52.8" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="613c8240-6b85-4862-9017-cfc704022969" CvTextArea="1595, 335, 32, 13" CvTextArgument="Save" CvType="Text" DesignTimeRectangle="1577, 322, 100, 39" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Save'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl id='B156207521211982995' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl id='B156207521211982995' tag='BUTTON' type='button' class=' sym_button t-Button t-Button--noLabel t-Button--icon ' aaname='Save' check:innerText='Save' /&gt;" Guid="504e5439-afe5-4e46-8e63-768a2d7b98f7" InformativeScreenshot="8491c43a2522e9b6ade5d73c6702968a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
-                      </uix:NClick.Target>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </uix:NClick>
+                            <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'New'" sap:VirtualizedContainerService.HintSize="410.4,157.6" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=SYMAMCF1:1500505600:798673489235:::1500505600::&amp;cs=3XzIMKuitUUvwMQG54yPI8YOCOhiRU7tSC6X-Yawg2whiRvRiY_jxklK35C0Sg9Go3LDsZXcFqvC5PAM6XB5SlQ" CVScreenId="ed3c8435-a95f-4061-9d38-cf5c7fcce414" CvTextArea="1786, 420, 55, 15" CvTextArgument="New +" CvType="Text" DesignTimeRectangle="1767, 408, 100, 39" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'New'" FullSelectorArgument="&lt;webctrl id='B156142594396973515' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='B156142594396973515' tag='BUTTON' type='button' class=' sym_button t-Button t-Button--noLabel t-Button--icon ' aaname='New' check:innerText='New' /&gt;" Guid="26c4433e-7478-40dd-8d61-c66c58919de2" InformativeScreenshot="29027a056393f655ea8653ccb39a3474.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="Single" DisplayName="Type Into 'Fund ID.'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410.4,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Text="[currentItem + &quot;[k(Enter)]&quot;]" Version="V3">
+                              <uix:NTypeInto.Target>
+                                <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="f7440a21-01a0-421a-a75b-1b7605be96c0" CvElementArea="262, 389, 584, 47" CvType="InputBox" DesignTimeRectangle="264, 392, 579, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT P1500505601_FND_K…'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='text' class='superlov-input popup_lov text_field apex-item-text' aaname='Fund ID. (Value Required)' /&gt;" Guid="63850820-c615-4678-820e-ea61135ad15c" InformativeScreenshot="5807bf381184e73753b7b504e18b570e.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target CVScreenId="f7440a21-01a0-421a-a75b-1b7605be96c0" CvTextArea="91, 400, 62, 15" CvTextArgument="Fund ID." CvType="Text" DesignTimeRectangle="93, 392, 151, 30" ElementType="Text" FriendlyName="'Fund ID.'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl tag='LABEL' type='' class='t-Form-label' aaname='Fund ID. ' check:innerText='Fund ID.&amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NTypeInto.Target>
+                            </uix:NTypeInto>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="410.4,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,164.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="Single" DisplayName="Type Into 'Date Amended'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Text="[in_BusinessDate + &quot;[k(Enter)]&quot;]" Version="V3">
+                                    <uix:NTypeInto.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="bb49d9fc-49ff-4ed6-abe8-18d6599aaa4f" CvElementArea="261, 596, 672, 46" CvType="InputBox" DesignTimeRectangle="264, 599, 653, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'19-FEB-2024'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_AMND_DT_AD' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_AMND_DT_AD' tag='INPUT' type='text' class='datepicker apex-item-text apex-item-datepicker hasDatepicker' aaname='Date Amended (Value Required)' /&gt;" Guid="7574a0f6-2320-4e2f-a085-7a73a444531a" InformativeScreenshot="511cce8b0dc9c405052b1784b6a31ab4.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                        <uix:TargetAnchorable.Anchors>
+                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                            <uix:Target CVScreenId="bb49d9fc-49ff-4ed6-abe8-18d6599aaa4f" CvTextArea="91, 607, 111, 15" CvTextArgument="Date Amended" CvType="Text" DesignTimeRectangle="93, 599, 151, 30" ElementType="Text" FriendlyName="'Date Amended'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Date Amended ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Date Amended ' tag='LABEL' type='' class='t-Form-label' check:innerText='Date Amended&amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                          </scg:List>
+                                        </uix:TargetAnchorable.Anchors>
+                                      </uix:TargetAnchorable>
+                                    </uix:NTypeInto.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </uix:NTypeInto>
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:CommentOut>
+                            <If Condition="[currentItem = &quot;NFG-CF-000005&quot;]" DisplayName="If it is a Conventional Product" sap:VirtualizedContainerService.HintSize="410.4,799.2" sap2010:WorkflowViewState.IdRef="If_1">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="376.8,308" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="Single" DisplayName="Type in Conventional Rate" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Text="[in_TransactionItem.SpecificContent(&quot;Conventional Rate&quot;).ToString + &quot;[k(Enter)]&quot;]" Version="V3">
+                                    <uix:NTypeInto.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="c3c982f8-8a51-4d38-8d07-5d64ae4d8ed9" CvElementArea="261, 793, 696, 47" CvType="InputBox" DesignTimeRectangle="264, 796, 690, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'10.00'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_MIN_INV_AMT_AD' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_MIN_INV_AMT_AD' tag='INPUT' type='text' class='text_field apex-item-text' aaname='Minimum Amount (Value Required)' /&gt;" Guid="b5407bcb-86b1-4875-ab9d-83055e3b29a6" InformativeScreenshot="6933405b498d631322c489b01c847865.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                        <uix:TargetAnchorable.Anchors>
+                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                            <uix:Target CVScreenId="c3c982f8-8a51-4d38-8d07-5d64ae4d8ed9" CvTextArea="91, 803, 137, 15" CvTextArgument="Minimum Amount" CvType="Text" DesignTimeRectangle="93, 796, 151, 30" ElementType="Text" FriendlyName="'Minimum Amount'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Minimum Amount ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Minimum Amount ' tag='LABEL' type='' class='t-Form-label' check:innerText='Minimum Amount&amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                          </scg:List>
+                                        </uix:TargetAnchorable.Anchors>
+                                      </uix:TargetAnchorable>
+                                    </uix:NTypeInto.Target>
+                                  </uix:NTypeInto>
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence sap:VirtualizedContainerService.HintSize="376.8,308" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="Single" DisplayName="Type in Halal Rate" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Text="[in_TransactionItem.SpecificContent(&quot;Halal Rate&quot;).ToString + &quot;[k(Enter)]&quot;]" Version="V3">
+                                    <uix:NTypeInto.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="c3c982f8-8a51-4d38-8d07-5d64ae4d8ed9" CvElementArea="261, 793, 696, 47" CvType="InputBox" DesignTimeRectangle="264, 796, 690, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'10.00'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_MIN_INV_AMT_AD' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_MIN_INV_AMT_AD' tag='INPUT' type='text' class='text_field apex-item-text' aaname='Minimum Amount (Value Required)' /&gt;" Guid="b5407bcb-86b1-4875-ab9d-83055e3b29a6" InformativeScreenshot="6933405b498d631322c489b01c847865.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                        <uix:TargetAnchorable.Anchors>
+                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                            <uix:Target CVScreenId="c3c982f8-8a51-4d38-8d07-5d64ae4d8ed9" CvTextArea="91, 803, 137, 15" CvTextArgument="Minimum Amount" CvType="Text" DesignTimeRectangle="93, 796, 151, 30" ElementType="Text" FriendlyName="'Minimum Amount'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Minimum Amount ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Minimum Amount ' tag='LABEL' type='' class='t-Form-label' check:innerText='Minimum Amount&amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                          </scg:List>
+                                        </uix:TargetAnchorable.Anchors>
+                                      </uix:TargetAnchorable>
+                                    </uix:NTypeInto.Target>
+                                  </uix:NTypeInto>
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                            <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="Single" DisplayName="Type Into 'Remarks (Value Required)'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410.4,52.8" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Text="[&quot;Done&quot; + &quot;[k(Enter)]&quot;]" Version="V3">
+                              <uix:NTypeInto.Target>
+                                <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="d1c4a54a-a0a5-4f5a-a1f3-970ec8042a48" CvElementArea="267, 898, 1571, 46" CvType="InputBox" DesignTimeRectangle="264, 900, 1571, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT P1500505601_RMK_T…'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_RMK_TXT_AD' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl name='P1500505601_RMK_TXT_AD' tag='INPUT' type='text' class='text_field apex-item-text' aaname='Remarks (Value Required)' /&gt;" Guid="f89951f3-80a4-4aba-8c83-60c161987341" InformativeScreenshot="33d397356be2d7d7352407ef1d0bb668.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target CVScreenId="d1c4a54a-a0a5-4f5a-a1f3-970ec8042a48" CvTextArea="91, 908, 63, 15" CvTextArgument="Remarks" CvType="Text" DesignTimeRectangle="93, 900, 151, 30" ElementType="Text" FriendlyName="'Remarks (Value Required)'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Remarks ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl aaname='Remarks ' tag='LABEL' type='' class='t-Form-label' check:innerText='Remarks&amp;#xA;(Value Required)' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NTypeInto.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NTypeInto>
+                            <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="410.4,52.8" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8be99916-9831-4e6a-89c9-a8b29c60ed27" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://symtest.norrenberger.com/symtest/f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;cs=3I8fDUtuArFWJ2SuxpirvoUiB8TgXsXhiP9zwgqG15g9JEaz4ouTW5OdIbMazS8d4ST20YeDgoSX-SPxK4J0w4Q&amp;p_dialog_cs=hwkFkwbN2q6u938v6dlegkkzjQLoE7zCGduoWNb71Wh0tai3Y6mCu_yUkdsjoflD6jPCDaRMv9r-ZzI6au_5Qw" CVScreenId="613c8240-6b85-4862-9017-cfc704022969" CvTextArea="1595, 335, 32, 13" CvTextArgument="Save" CvType="Text" DesignTimeRectangle="1577, 322, 100, 39" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Save'" FullSelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl id='B156207521211982995' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl src='f?p=5210850300:1500505601:798673489235:I::1500505601::&amp;amp;cs=3I8fDU*' tag='IFRAME' /&gt;&lt;webctrl id='B156207521211982995' tag='BUTTON' type='button' class=' sym_button t-Button t-Button--noLabel t-Button--icon ' aaname='Save' check:innerText='Save' /&gt;" Guid="504e5439-afe5-4e46-8e63-768a2d7b98f7" InformativeScreenshot="8491c43a2522e9b6ade5d73c6702968a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Non Unitized Fund Amendment' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NClick>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
+                    </ui:ForEach>
                   </Sequence>
                 </ActivityAction>
-              </ui:ForEach.Body>
-            </ui:ForEach>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="c66cc465f7e0c65f7072e738bb8e3383.jpg" Selector="&lt;html app='chrome.exe' title='Symplus Dashboard' /&gt;" Title="Symplus Dashboard" Url="[SymplusLink]" />
+              </uix:NApplicationCard.TargetApp>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NApplicationCard>
           </Sequence>
         </ActivityAction>
-      </uix:NApplicationCard.Body>
-      <uix:NApplicationCard.TargetApp>
-        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABcAAAAgCAYAAAD5VeO1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAXfSURBVEhL7VVpUFNXFL7YOo6KtmOnmz/q1KkWiJFFNiEqBHCrUhVZrAhoUSuLSMqWsBVISCAJMYQ9JOySQCCyyRpkk0XBshMguC8oaNVBQRFu78MwIqUd+6/T8Zs5yct73/fl3HvOuQ/8/9AyBUEnhIt4t8aX2VffVHWsv6cafn1ctXAcLo57NA0ghErmv0B+zx1QdOPRUkZug0ZEuGBvcnRWOjOQJ2UHx0r53Mz8JFaKh5tvvLaXpOUL5toDwEk+qlT+A4Q3noN8lCmJV/RpOIV3SuAa2JdmfnCk1Mhiql7XGDagkG0mQonxzmfCPQ63Yu09s8mnmVa+yRWrsl7BRQnXxpRO80CuVgATCFVYmdXGcadpOXmE3cONGzbB9vUasHOdOuxSBnbdge61f4+DdXi9acm2vcOx7mF5EakV2wjDUIVU0qt0VCK+fRicQxnTU8q3JLkEN1ZtNp/uQuJeZNKDvv8+NCDGqzYgQv4J/xaGoMykBvmc6xlWOiNwEwoAK0O2JtkzXFZjSIR9SCRXwy0cyOyv9zRgnYEpFHpH1nKlTd/GZFQCymyx1SW3P6L/HHSy0njnk361DXBwocAy1dCCtfqmr0r1iC+6NTTfeY7pSk0snzF8o933t0587JlU9cacwspdJ9p9pKILpwMVKJO3InSNTLsxU+MdUyLrX4Z4ZG5i5BHf7EbdrdMK9GyWi+na8bow1ca1JjRF9h37VBgIkykA8PeIOllmYvkUM5olD6DoRgWtJux6JXIk3YwJiOGx0yqJvh1PVsTxi3yrdlpPDMzhzwT6XWphNRYSmOQocvYDLkEpAMSYHfao1SK8mJt1r/pGKNptD2M42V1R4vrtKf1/rBBeuQ0clmsCTvIFfNr+4+09OK13zLGV1GsTJvknAiPT702rptcNACAhUWuu4vUmFXOI/Wp4eNHQHGYcJ9/3o4vssPJYU6WAmtMMKFVDnwnInKJWbaOZbOf+QRdabS6Z2ctuuqPGlcmROS0BdmzUm7ffaGuQsNjswONwlvj4l2gGaBe6QbZiTCV0FC6J8OM5lmzd82y+eT9OE2a7hyh8CrpxAaIWNO60+IdtmgbT8807N+hAgY1rGSkid7WXCxMwRZcAI6dpHYOayqYxMouz7Fwn5GiFczVytFViT+pQQFk/LlR6FQ3RYVJYjTZhfG71sYxkmy3G2I5kpzVoMBLqFKABwsUJvFwPiaXT83JTS1hE+AHV5m1LYsn9jqZW7BFSwGp7sDpa1gdA4BmOWxlx3wsFGoZZYg8S5f7kdpORUrUtipsL6MJKEHS+fZXAm1nZqmMMB9H0Yh01y58xRwlVG5i9jDjk5fIS1SiClY0+0mTb8/Yf6+1BHTJLatQ3mea6hyewrtxfwcy4CNoQOYR+jiCxsJX3KXnzQ66Oh4XbrQcDqOnE9EPuwC26GADnzMtLOUcpnKZNhEnMWI7EUjOrobDfBKZYl7Cll0FUx+hyjgeDU29InHpn+5SB3WvWMX4dbe8dd4J7YZmfVwzwa0JnTO0aDRASkKgv3ndssAenDa9qGcA0T/qlsLzWr9GqAIMnBWHJ5bqiIx6D2LQuZIwVX2x76jqVmmr0FKcGjgovobQQgsUzvbuc4RfjU2h+8NH5HbYTvMgMn3IIlyTWDQL0ylFhOVFsKg0tHi9k3IUSku51eMxlZvrHdY6oxsrmHLtfbbkL3GnZwI5VohruE+0XF5pUwhA14M+mVwHySSogcQs+T7R1K8TOjtl2xUyxOWjF67+WWDnfY1GFFPf8jpWB/ArwY80DpfMs0BHJkw2AyNprK7k1irVJHcOLGMWdAKs6jZZmX2J+YLQfmWEtihW0GU1n+S6bSb7daQkjOMkisuHGSm4R6uv3fa+S6DkAowYECc4IHX59mLfHfiTPynkk39nnVryDNz/6rNgnRtqyHjZXA8387jei9wUlqxG42PsCclrtN95siQnJn2/ixZSY0os6jGLb7n4Cj2aAbpQpeu8qFR/wAf9RAPAnqDnPlEp9zlYAAAAASUVORK5CYII=" InformativeScreenshot="c66cc465f7e0c65f7072e738bb8e3383.jpg" Selector="&lt;html app='chrome.exe' title='Symplus Dashboard' /&gt;" Title="Symplus Dashboard" Url="[SymplusLink]" />
-      </uix:NApplicationCard.TargetApp>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </uix:NApplicationCard>
-    <umab:ExchangeApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" SharedMailbox="{x:Null}" Account="digital@norrenberger.com" DisplayName="Use Outlook 365" EmailAddress="digital@norrenberger.com" sap:VirtualizedContainerService.HintSize="529.6,711.2" sap2010:WorkflowViewState.IdRef="ExchangeApplicationCard_1" UseConnectionService="False">
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean" />
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+    <umab:ExchangeApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" SharedMailbox="{x:Null}" Account="digital@norrenberger.com" DisplayName="Use Outlook 365" EmailAddress="digital@norrenberger.com" sap:VirtualizedContainerService.HintSize="491.2,80" sap2010:WorkflowViewState.IdRef="ExchangeApplicationCard_1" UseConnectionService="False">
       <umab:ExchangeApplicationCard.ApplicationId>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
@@ -389,26 +419,34 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Exchange" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,486.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,481.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <umab:SendMailX Bcc="{x:Null}" Body="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Exchange]" Cc="[in_TransactionItem.SpecificContent(&quot;Requester Email&quot;).ToString]" DisplayName="Send Approver Email" sap:VirtualizedContainerService.HintSize="433.6,374.4" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="Approval for Kickstart Product Rate Update" To="[in_Config(&quot;ApproverEmail&quot;).ToString]" UseDocumentAsBody="False">
+            <umab:SendMailX Bcc="{x:Null}" Body="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Exchange]" Cc="[in_TransactionItem.SpecificContent(&quot;Requester Email&quot;).ToString]" DisplayName="Send Approver Email" sap:VirtualizedContainerService.HintSize="433.6,369.6" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="Approval for Kickstart Product Rate Update" To="[in_Config(&quot;ApproverEmail&quot;).ToString]" UseDocumentAsBody="False">
               <umab:SendMailX.Files>
                 <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
               </umab:SendMailX.Files>
               <umab:SendMailX.HtmlBodyFromFile>
-                <umabh:HtmlContentArgument FilePath="{x:Null}">
+                <umabh:HtmlContentArgument FilePath=".data/HtmlContent0.html">
                   <umabh:HtmlContentArgument.RuntimeImages>
                     <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
                   </umabh:HtmlContentArgument.RuntimeImages>
                   <umabh:HtmlContentArgument.ValueMappings>
-                    <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="0" />
+                    <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="4">
+                      <umabh:HtmlTextValueMapping Name="Approver" Value="[CultureInfo.CurrentCulture.TextInfo.ToTitleCase(in_Config(&quot;ApproverEmail&quot;).ToString.Replace(&quot;@norrenberger.com&quot;, &quot;&quot;).Replace(&quot;.&quot;, &quot; &quot;))]" />
+                    </scg:List>
                   </umabh:HtmlContentArgument.ValueMappings>
                 </umabh:HtmlContentArgument>
               </umab:SendMailX.HtmlBodyFromFile>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
             </umab:SendMailX>
           </Sequence>
         </ActivityAction>
@@ -418,6 +456,12 @@
           <Literal x:TypeArguments="x:String" Value="" />
         </InArgument>
       </umab:ExchangeApplicationCard.TenantId>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </umab:ExchangeApplicationCard>
   </Sequence>
 </Activity>

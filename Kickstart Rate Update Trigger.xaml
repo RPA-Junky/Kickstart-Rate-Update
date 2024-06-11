@@ -133,16 +133,36 @@
               <umsm:ColumnSample Value="{x:Null}" />
             </umsm:Office365SharepointListColumnSlim.Sample>
           </umsm:Office365SharepointListColumnSlim>
-          <x:Reference>__ReferenceID0</x:Reference>
+          <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" x:Name="__ReferenceID0" DisplayName="Requester" Guid="82642ec8-ef9b-478f-acf9-31f7d45fbc31" IsRequired="False" Name="LinkTitle" ReadOnly="True" Type="DefaultValue">
+            <umsm:Office365SharepointListColumnSlim.Sample>
+              <umsm:ColumnSample Value="{x:Null}" />
+            </umsm:Office365SharepointListColumnSlim.Sample>
+          </umsm:Office365SharepointListColumnSlim>
           <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" DisplayName="Compliance Asset Id" Guid="3a6b296c-3f50-445c-a13f-9c679ea9dda3" IsRequired="False" Name="ComplianceAssetId" ReadOnly="True" Type="Text">
             <umsm:Office365SharepointListColumnSlim.Sample>
               <umsm:ColumnSample Value="{x:Null}" />
             </umsm:Office365SharepointListColumnSlim.Sample>
           </umsm:Office365SharepointListColumnSlim>
-          <x:Reference>__ReferenceID1</x:Reference>
-          <x:Reference>__ReferenceID2</x:Reference>
-          <x:Reference>__ReferenceID3</x:Reference>
-          <x:Reference>__ReferenceID4</x:Reference>
+          <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" x:Name="__ReferenceID1" DisplayName="Conventional Rate" Guid="9686a21a-6767-4c23-b310-fe3f44684c3a" IsRequired="True" Name="KickstartConventionalRate" ReadOnly="False" Type="Number">
+            <umsm:Office365SharepointListColumnSlim.Sample>
+              <umsm:ColumnSample Value="{x:Null}" />
+            </umsm:Office365SharepointListColumnSlim.Sample>
+          </umsm:Office365SharepointListColumnSlim>
+          <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" x:Name="__ReferenceID2" DisplayName="Halal Rate" Guid="d2ba870a-d419-4fde-a5d0-9dc216b3398a" IsRequired="True" Name="HalalRate" ReadOnly="False" Type="Number">
+            <umsm:Office365SharepointListColumnSlim.Sample>
+              <umsm:ColumnSample Value="{x:Null}" />
+            </umsm:Office365SharepointListColumnSlim.Sample>
+          </umsm:Office365SharepointListColumnSlim>
+          <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" x:Name="__ReferenceID3" DisplayName="Requester Email" Guid="0d4e289e-651f-42af-9ada-81b05880ff60" IsRequired="False" Name="RequesterEmail" ReadOnly="False" Type="Text">
+            <umsm:Office365SharepointListColumnSlim.Sample>
+              <umsm:ColumnSample Value="{x:Null}" />
+            </umsm:Office365SharepointListColumnSlim.Sample>
+          </umsm:Office365SharepointListColumnSlim>
+          <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" x:Name="__ReferenceID4" DisplayName="RunStatus" Guid="9cadc81c-cae7-49ef-857a-65367ccf42f0" IsRequired="False" Name="RunStatus" ReadOnly="False" Type="Text">
+            <umsm:Office365SharepointListColumnSlim.Sample>
+              <umsm:ColumnSample Value="{x:Null}" />
+            </umsm:Office365SharepointListColumnSlim.Sample>
+          </umsm:Office365SharepointListColumnSlim>
           <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" DisplayName="ID" Guid="1d22ea11-1e32-424e-89ab-9fedbadb6ce1" IsRequired="False" Name="ID" ReadOnly="True" Type="DefaultValue">
             <umsm:Office365SharepointListColumnSlim.Sample>
               <umsm:ColumnSample Value="{x:Null}" />
@@ -235,40 +255,16 @@
       </umas:GetListItemsConnections.AllColumns>
       <umas:GetListItemsConnections.ColumnsToRetrieve>
         <x:Array Type="umsm:Office365SharepointListColumnSlim">
-          <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" x:Name="__ReferenceID0" DisplayName="Requester" Guid="82642ec8-ef9b-478f-acf9-31f7d45fbc31" IsRequired="False" Name="LinkTitle" ReadOnly="True" Type="DefaultValue">
-            <umsm:Office365SharepointListColumnSlim.Sample>
-              <umsm:ColumnSample Value="{x:Null}" />
-            </umsm:Office365SharepointListColumnSlim.Sample>
-          </umsm:Office365SharepointListColumnSlim>
-          <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" x:Name="__ReferenceID1" DisplayName="Conventional Rate" Guid="9686a21a-6767-4c23-b310-fe3f44684c3a" IsRequired="True" Name="KickstartConventionalRate" ReadOnly="False" Type="Number">
-            <umsm:Office365SharepointListColumnSlim.Sample>
-              <umsm:ColumnSample Value="{x:Null}" />
-            </umsm:Office365SharepointListColumnSlim.Sample>
-          </umsm:Office365SharepointListColumnSlim>
-          <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" x:Name="__ReferenceID2" DisplayName="Halal Rate" Guid="d2ba870a-d419-4fde-a5d0-9dc216b3398a" IsRequired="True" Name="HalalRate" ReadOnly="False" Type="Number">
-            <umsm:Office365SharepointListColumnSlim.Sample>
-              <umsm:ColumnSample Value="{x:Null}" />
-            </umsm:Office365SharepointListColumnSlim.Sample>
-          </umsm:Office365SharepointListColumnSlim>
-          <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" x:Name="__ReferenceID3" DisplayName="Requester Email" Guid="0d4e289e-651f-42af-9ada-81b05880ff60" IsRequired="False" Name="RequesterEmail" ReadOnly="False" Type="Text">
-            <umsm:Office365SharepointListColumnSlim.Sample>
-              <umsm:ColumnSample Value="{x:Null}" />
-            </umsm:Office365SharepointListColumnSlim.Sample>
-          </umsm:Office365SharepointListColumnSlim>
+          <x:Reference>__ReferenceID0</x:Reference>
+          <x:Reference>__ReferenceID1</x:Reference>
+          <x:Reference>__ReferenceID2</x:Reference>
+          <x:Reference>__ReferenceID3</x:Reference>
         </x:Array>
       </umas:GetListItemsConnections.ColumnsToRetrieve>
       <umas:GetListItemsConnections.Filter>
         <umasf:ColumnFilterCollection LogicalOperator="And">
           <umasf:ColumnFilterCollection.Filters>
-            <umasf:ColumnFilter BooleanValue="{x:Null}" DateValue="{x:Null}" NumberValue="{x:Null}" BooleanOperator="NotEqual" DateOperator="NewerThan" NumberOperator="Equals" StringOperator="Equals" StringValue="Running">
-              <umasf:ColumnFilter.Criteria>
-                <umsm:Office365SharepointListColumnSlim Choice="{x:Null}" LookupColumn="{x:Null}" LookupListId="{x:Null}" PersonOrGroup="{x:Null}" x:Name="__ReferenceID4" DisplayName="RunStatus" Guid="9cadc81c-cae7-49ef-857a-65367ccf42f0" IsRequired="False" Name="RunStatus" ReadOnly="False" Type="Text">
-                  <umsm:Office365SharepointListColumnSlim.Sample>
-                    <umsm:ColumnSample Value="{x:Null}" />
-                  </umsm:Office365SharepointListColumnSlim.Sample>
-                </umsm:Office365SharepointListColumnSlim>
-              </umasf:ColumnFilter.Criteria>
-            </umasf:ColumnFilter>
+            <umasf:ColumnFilter BooleanValue="{x:Null}" Criteria="{x:Reference __ReferenceID4}" DateValue="{x:Null}" NumberValue="{x:Null}" BooleanOperator="NotEqual" DateOperator="NewerThan" NumberOperator="Equals" StringOperator="Equals" StringValue="Running" />
           </umasf:ColumnFilterCollection.Filters>
         </umasf:ColumnFilterCollection>
       </umas:GetListItemsConnections.Filter>
@@ -322,8 +318,8 @@
           <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="Operations Team" sap:VirtualizedContainerService.HintSize="433.6,194.4" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="Kickstart Rate Update Queue">
             <ui:AddQueueItem.ItemInformation>
               <InArgument x:TypeArguments="x:String" x:Key="Requester">[dt_row("LinkTitle").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Conventional Rate">[dt_row("ConventionalRate").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Halal Rate">[dt_row("HalalRate").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="Conventional Rate">[Cint(dt_row("ConventionalRate").ToString)]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="Halal Rate">[Cint(dt_row("HalalRate").ToString)]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="Requester Email">[dt_row("RequesterEmail").ToString]</InArgument>
             </ui:AddQueueItem.ItemInformation>
             <sap:WorkflowViewStateService.ViewState>
